@@ -17,7 +17,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import oracle.jdbc.OracleTypes;
 
 @Component
-public class ServiceForCars {
+public class CarService {
 
 	@Autowired
 	private DataSource dataSource; // DataSource is the configured object in yml file to connect the DB

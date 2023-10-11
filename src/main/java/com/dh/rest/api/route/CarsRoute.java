@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.dh.rest.api.model.Cars;
-import com.dh.rest.api.service.ServiceForCars;
+import com.dh.rest.api.service.CarService;
 
 @Component
-public class RouteForCarsModel extends RouteBuilder {
+public class CarsRoute extends RouteBuilder {
 
 	@Autowired
-	private ServiceForCars serviceForCars;
+	private CarService serviceForCars;
 
 	@Override
 	public void configure() {
@@ -31,11 +31,11 @@ public class RouteForCarsModel extends RouteBuilder {
 				// to add a new car
 				.post("/add").type(Cars.class).consumes("application/json").to("direct:add-car");
 
-		from("direct:view-all-cars").log("enter view all cars-").to("bean:serviceForCars?method=viewAllCars");
-
-		from("direct:view-car").log("enter view car by model number- ")
-				.to("bean:serviceForCars?method=viewCarByModelno");
-
-		from("direct:add-car").log("${body}").bean(serviceForCars, "addCars");
+				from("direct:view-all-cars").log("enter view all cars-").to("bean:serviceForCars?method=viewAllCars");
+		
+				from("direct:view-car").log("enter view car by model number- ")
+						.to("bean:serviceForCars?method=viewCarByModelno");
+		
+				from("direct:add-car").log("${body}").bean(serviceForCars, "addCars");
 	}
 }

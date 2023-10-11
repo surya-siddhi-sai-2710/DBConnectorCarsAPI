@@ -6,10 +6,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan("com.dh.rest.api.*")
-public class CamelEndpointBackendApplication {
+public class DBConnectorAPIApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CamelEndpointBackendApplication.class, args);
+		SpringApplication.run(DBConnectorAPIApplication.class, args);
 	}
 
 }
